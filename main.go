@@ -7,16 +7,22 @@ import (
 )
 
 func init() {
+    // Load environment variables
     initializers.LoadEnvVariables()
+
+    // Connect to the database
     initializers.ConnectToDB()
 }
 
 func main() {
+    // Use the existing routing setup
     r := gin.Default()
 
-    // Setup routes
+    // Setup user routes
     routes.UserRoutes(r)
 
-    // Run server
+    // Run server on port 8080
     r.Run(":8080")
 }
+
+
