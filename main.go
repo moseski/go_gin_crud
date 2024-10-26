@@ -7,19 +7,18 @@ import (
 )
 
 func init() {
-    // Load environment variables
+    // Load environment variables and initialize MongoDB and Redis connections
     initializers.LoadEnvVariables()
-
-    // Connect to the database
-    initializers.ConnectToDB()
+    initializers.ConnectToMongoDB()
+    initializers.InitRedis()  // Initialize Redis connection
 }
 
 func main() {
     r := gin.Default()
 
+    // Register routes
     routes.UserRoutes(r)
 
+    // Start the server on port 8080
     r.Run(":8080")
 }
-
-
