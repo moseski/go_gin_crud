@@ -12,9 +12,9 @@ var ctx = context.Background()
 
 func InitRedis() {
     RedisClient = redis.NewClient(&redis.Options{
-        Addr:     os.Getenv("REDIS_ADDR"),    // Use REDIS_ADDR from environment variables
-        Password: os.Getenv("REDIS_PASSWORD"), // No password set by default
-        DB:       0,                          // Default DB
+        Addr:     os.Getenv("REDIS_ADDR"), 
+        Password: os.Getenv("REDIS_PASSWORD"), 
+        DB:       0,                          
     })
 
     // Test the connection

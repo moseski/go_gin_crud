@@ -14,7 +14,6 @@ import (
 
 var ctx = context.Background()
 
-// CreateUser - Create a new user in MongoDB
 func CreateUser(c *gin.Context) {
     var user models.User
     if err := c.ShouldBindJSON(&user); err != nil {
